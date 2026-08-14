@@ -1,4 +1,4 @@
-# touhou-hakurei · 博丽神社（东方Project 美化版皮肤）
+# touhou-hakurei · 灵梦美化包：博丽神社（东方Project 主题皮肤）
 
 DeepSeek Harness Web GUI 的东方Project 博丽神社主题皮肤：博丽神社昼夜实景背景、
 灵梦左右立绘、朱红/纸白/金色的神社装饰界面。纯展示层客户端插件 —— `apply()`
