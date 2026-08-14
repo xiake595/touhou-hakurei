@@ -332,7 +332,6 @@ css += '\n' + [
 '  background: transparent;',
 '  box-shadow: none;',
 '  backdrop-filter: none;',
-'  translate: 0 20px;',
 '}',
 'body[data-dsh-hakurei][data-ds-dark-theme] [data-composer-card] {',
 '  background: transparent;',
@@ -356,6 +355,88 @@ css += '\n' + [
 '  color: rgba(90, 58, 36, 0.75);',
 '  text-shadow: 0 1px 1px rgba(255, 250, 238, 0.85);',
 '}',
+
+/* 11. 新会话（hero）：画框上移 20px（输入框本体不动）；浅色模式深色字、
+    深色模式浅色字（侧边栏 + 输入框）。 */
+body[data-dsh-hakurei] [data-phase=\'hero\'] [data-composer-card]::before {
+  translate: 0 -20px;
+}
+body[data-dsh-hakurei]:not([data-ds-dark-theme])
+  :is([data-pane=\'sidebar\'], [class*=\'sidebarCol\']) {
+  --dsw-alias-label-primary: #2a1a12;
+  --dsw-alias-label-secondary: #4a3a2c;
+  --dsw-alias-label-tertiary: #6a5a46;
+  --dsw-alias-label-caption: #7a6a56;
+}
+body[data-dsh-hakurei]:not([data-ds-dark-theme])
+  :is([data-pane=\'sidebar\'], [class*=\'sidebarCol\'])
+  [data-hakurei-workspace-row]:not([data-hakurei-workspace-active]) {
+  color: #2a1a12;
+  text-shadow: 0 1px 0 rgba(255, 252, 244, 0.85);
+}
+body[data-dsh-hakurei]:not([data-ds-dark-theme])
+  :is([data-pane=\'sidebar\'], [class*=\'sidebarCol\'])
+  [data-hakurei-workspace-row] [class*=\'meta\'] {
+  color: #5a4a38;
+}
+body[data-dsh-hakurei]:not([data-ds-dark-theme])
+  :is([data-pane=\'sidebar\'], [class*=\'sidebarCol\'])
+  :is([data-hakurei-session-row], [data-hakurei-session-flat]) {
+  color: #2a1a12;
+  text-shadow: 0 1px 0 rgba(255, 252, 244, 0.85);
+}
+body[data-dsh-hakurei]:not([data-ds-dark-theme])
+  :is([data-pane=\'sidebar\'], [class*=\'sidebarCol\'])
+  [data-hakurei-session-row][aria-selected=\'true\'] {
+  color: #2a1a12;
+}
+body[data-dsh-hakurei]:not([data-ds-dark-theme])
+  :is([data-pane=\'sidebar\'], [class*=\'sidebarCol\'])
+  [data-hakurei-session-row][aria-selected=\'true\'] [class*=\'title\'] {
+  color: #2a1a12;
+  text-shadow: 0 1px 0 rgba(255, 252, 244, 0.85);
+}
+body[data-dsh-hakurei]:not([data-ds-dark-theme])
+  :is([data-pane=\'sidebar\'], [class*=\'sidebarCol\'])
+  [data-hakurei-session-row][aria-selected=\'true\'] [class*=\'time\'] {
+  color: #5a4a38;
+}
+body[data-dsh-hakurei]:not([data-ds-dark-theme])
+  :is([data-pane=\'sidebar\'], [class*=\'sidebarCol\'])
+  :is([class*=\'sectionHeader\'], [class*=\'sectionLabel\']) {
+  color: #5a4a38;
+  text-shadow: 0 1px 0 rgba(255, 252, 244, 0.85);
+}
+body[data-dsh-hakurei]:not([data-ds-dark-theme])
+  :is([data-pane=\'sidebar\'], [class*=\'sidebarCol\'])
+  :is([class*=\'searchInput\'], [class*=\'searchButton\'], [class*=\'clearButton\']) {
+  color: #2a1a12;
+}
+body[data-dsh-hakurei]:not([data-ds-dark-theme])
+  :is([data-pane=\'sidebar\'], [class*=\'sidebarCol\'])
+  [class*=\'search\'][class*=\'searchExpanded\']:has(> input[class*=\'searchInput\']) {
+  background: linear-gradient(180deg, rgba(255, 252, 244, 0.9), rgba(243, 228, 200, 0.78));
+  border-color: rgba(190, 145, 75, 0.6);
+  box-shadow:
+    inset 0 0 0 1px rgba(190, 145, 75, 0.35),
+    0 3px 9px rgba(21, 5, 8, 0.12);
+}
+body[data-dsh-hakurei]:not([data-ds-dark-theme]) [data-composer-card] textarea {
+  color: #2a1a12;
+  text-shadow: none;
+}
+body[data-dsh-hakurei][data-ds-dark-theme] [data-composer-card] textarea {
+  color: #f0e6d2;
+  text-shadow: 0 1px 1px rgba(24, 6, 9, 0.7);
+}
+body[data-dsh-hakurei]:not([data-ds-dark-theme]) [data-composer-card] textarea::placeholder {
+  color: rgba(90, 58, 36, 0.65);
+  text-shadow: none;
+}
+body[data-dsh-hakurei][data-ds-dark-theme] [data-composer-card] textarea::placeholder {
+  color: rgba(240, 230, 210, 0.6);
+  text-shadow: 0 1px 1px rgba(24, 6, 9, 0.7);
+}
 ].join('\n')
 
 fs.writeFileSync(dst, css)

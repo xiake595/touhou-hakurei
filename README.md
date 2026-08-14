@@ -26,11 +26,23 @@ DeepSeek Harness Web GUI 的东方Project 博丽神社主题皮肤：博丽神�
 
 ## 安装
 
+方式一：本地路径（开发 / 已克隆仓库）
+
 ```sh
 dsh plugin --profile web add <本目录绝对路径>
 ```
 
-加载即生效、卸载即复原（`wiring.id` 为 `ui-skin-hakurei`）。
+方式二：GitHub 分发（克隆后安装）
+
+```sh
+git clone https://github.com/<your-name>/touhou-hakurei
+dsh plugin --profile web add <克隆路径>
+```
+
+也可以直接对 DSH 说："安装一下这个皮肤包：<仓库 URL>"。
+
+加载即生效、卸载即复原（`wiring.id` 为 `ui-skin-hakurei`）。皮肤之间的
+互斥切换由皮肤管理工具（如 dsh-skin）或 profile 的 bundles 配置管理。
 
 ## 素材
 
