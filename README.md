@@ -12,6 +12,12 @@ DeepSeek Harness Web GUI 的东方Project 博丽神社主题皮肤：博丽神�
 | --- | --- |
 | ![light](preview/light.webp) | ![dark](preview/dark.webp) |
 
+## 效果展示
+
+| 深色主题 · 场景一 | 深色主题 · 场景二 | 浅色主题 |
+| --- | --- | --- |
+| [![深色主题一](screenshots/shot-dark-1.webp)](screenshots/shot-dark-1.webp) | [![深色主题二](screenshots/shot-dark-2.webp)](screenshots/shot-dark-2.webp) | [![浅色主题](screenshots/shot-light.webp)](screenshots/shot-light.webp) |
+
 ## 特性
 
 - 博丽神社昼/夜实景对话背景（亮/暗主题自动切换，窗口顶部无遮挡条）
