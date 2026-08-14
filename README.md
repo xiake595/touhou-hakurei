@@ -35,7 +35,7 @@ dsh plugin --profile web add <本目录绝对路径>
 方式二：GitHub 分发（克隆后安装）
 
 ```sh
-git clone https://github.com/<your-name>/touhou-hakurei
+git clone https://github.com/xiake595/touhou-hakurei
 dsh plugin --profile web add <克隆路径>
 ```
 
