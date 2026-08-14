@@ -1,0 +1,10 @@
+touhou-hakurei 皮肤署名链
+
+1. 皮肤工程结构（构建预设、皮肤脚手架、布局/动画工程）：
+   dsh-deep-whale / maid-atelier（作者 Small-tailqwq，
+   https://github.com/Small-tailqwq/dsh-deep-whale），CC BY-NC-SA 4.0
+2. 背景 / 角色 / 画框素材：用户本地素材（博丽神社昼夜、灵梦站姿/飞行、横幅、
+   方框.png、对话框.png），经 tools/generate-assets.cjs 转 webp 内嵌于 bundle
+3. 装饰素材：本皮肤 tools/generate-assets.cjs 程序生成的 SVG 栅格化产物
+
+本皮肤整体以 CC BY-NC-SA 4.0 发布，禁止任何商业性使用。

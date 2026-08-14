@@ -1,0 +1,16 @@
+# dependencies
+node_modules/
+
+# logs
+*.log
+npm-debug.log*
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/
+
+# dsh local profile artifacts
+.dsh/
