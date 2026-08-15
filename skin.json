@@ -3,8 +3,8 @@
   "name": "博丽神社·灵梦",
   "nameEn": "Hakurei Shrine (Reimu)",
   "author": "Touhou skin (derived from maid-atelier by Small-tailqwq)",
-  "tagline": "灵梦与神社：昼/夜实景背景、画框侧栏与输入框、纸白透明界面",
-  "description": "一套面向 DeepSeek Harness WebUI 的东方Project 博丽神社主题皮肤。以博丽神社昼夜实景为对话背景，灵梦立绘驻守左右；侧边栏与输入框分别由方框.png、对话框.png 画框包裹，透明中心直接透出背景；朱红、纸白与金色构成 UI 覆盖层，并为加载、思考和工具运行状态预留稳定动画钩子。",
+  "tagline": "灵梦与神社：昼/夜实景背景、统一半透明面板、双主题自适应",
+  "description": "一套面向 DeepSeek Harness WebUI 的东方Project 博丽神社主题皮肤。以博丽神社昼夜实景为对话背景，灵梦立绘驻守左右；侧边栏、对话头部与输入框统一为半透明纸白/深棕面板并随主题切换，文字按主题自动分色；简洁无横幅，并为加载、思考和工具运行状态预留稳定动画钩子。",
   "tags": [
     "anime",
     "touhou",
