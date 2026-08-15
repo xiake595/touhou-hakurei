@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Rewrite the maid-atelier CSS into the Hakurei Shrine skin CSS:
  *  1. blanket rename maid -> hakurei (attrs, vars, keyframes, classes)
  *  2. remap the deep-sea navy/periwinkle palette to shrine vermilion /
@@ -332,7 +332,6 @@ css += '\n' + [
 '  background: transparent;',
 '  box-shadow: none;',
 '  backdrop-filter: none;',
-'  translate: 0 20px;',
 '}',
 'body[data-dsh-hakurei][data-ds-dark-theme] [data-composer-card] {',
 '  background: transparent;',
