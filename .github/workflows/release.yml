@@ -1,0 +1,45 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build
+        run: pnpm build
+
+      - name: Package skin bundle
+        run: |
+          mkdir -p dist/touhou-hakurei
+          cp -r lib skin.json cordis.patch.yml README.md LICENSE NOTICE dist/touhou-hakurei/
+          cd dist && zip -r ../touhou-hakurei-${{ github.ref_name }}.zip touhou-hakurei
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: touhou-hakurei-*.zip
+          generate_release_notes: true
