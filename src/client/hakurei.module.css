@@ -2688,7 +2688,6 @@ body[data-dsh-hakurei] [data-phase='hero'] [data-composer-card] {
   background: transparent;
   box-shadow: none;
   backdrop-filter: none;
-  translate: 0 20px;
 }
 body[data-dsh-hakurei][data-ds-dark-theme] [data-composer-card] {
   background: transparent;
