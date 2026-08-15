@@ -1,51 +1,54 @@
 {
-  "name": "@dsh-external/dsh-client-ui-skin-hakurei-shrine",
-  "description": "Hot-pluggable Hakurei Shrine (Touhou Project) skin for the dsh web GUI: shrine day/night backdrops, Reimu figures, framed sidebar & composer, transparent paper UI",
-  "version": "0.1.0",
-  "private": true,
-  "type": "module",
-  "main": "lib/index.js",
-  "exports": {
-    ".": "./lib/index.js",
-    "./client": "./lib/client.js",
-    "./skin.json": "./skin.json",
-    "./package.json": "./package.json"
-  },
-  "dsh": {
-    "bundle": {
-      "patch": "./cordis.patch.yml"
-    },
-    "client": {
-      "inject": [],
-      "platform": "web"
-    }
-  },
-  "scripts": {
-    "build": "tsdown",
-    "generate:assets": "node tools/generate-assets.cjs",
-    "rewrite:css": "node tools/rewrite-css.cjs",
-    "rewrite:index": "node tools/rewrite-index.cjs"
-  },
-  "license": "CC-BY-NC-SA-4.0",
-  "peerDependencies": {
-    "@deepseek-ai/cordis": "^4.0.1"
-  },
-  "devDependencies": {
-    "@deepseek-ai/cordis": "^4.0.1",
-    "lightningcss": "^1.32.0",
-    "tsdown": "0.22.14"
-  },
-  "files": [
-    "lib/index.js",
-    "lib/client.js",
-    "cordis.patch.yml",
-    "skin.json",
-    "preview",
-    "src",
-    "tools",
-    "assets-gen",
-    "LICENSE",
-    "NOTICE",
-    "README.md"
-  ]
+    "name":  "@dsh-external/dsh-client-ui-skin-hakurei-shrine",
+    "description":  "Hot-pluggable Hakurei Shrine (Touhou Project) skin for the dsh web GUI: shrine day/night backdrops, Reimu figures, framed sidebar \u0026 composer, transparent paper UI",
+    "version":  "0.1.0",
+    "private":  true,
+    "type":  "module",
+    "main":  "lib/index.js",
+    "exports":  {
+                    ".":  "./lib/index.js",
+                    "./client":  "./lib/client.js",
+                    "./skin.json":  "./skin.json",
+                    "./package.json":  "./package.json"
+                },
+    "dsh":  {
+                "bundle":  {
+                               "patch":  "./cordis.patch.yml"
+                           },
+                "client":  {
+                               "inject":  [
+
+                                          ],
+                               "platform":  "web"
+                           }
+            },
+    "scripts":  {
+                    "build":  "tsdown",
+                    "generate:assets":  "node tools/generate-assets.cjs",
+                    "rewrite:css":  "node tools/rewrite-css.cjs",
+                    "rewrite:index":  "node tools/rewrite-index.cjs"
+                },
+    "license":  "CC-BY-NC-SA-4.0",
+    "peerDependencies":  {
+                             "@deepseek-ai/cordis":  "^4.0.1"
+                         },
+    "devDependencies":  {
+                            "@deepseek-ai/cordis":  "^4.0.1",
+                            "lightningcss":  "^1.32.0",
+                            "tsdown":  "0.22.14",
+                            "unrun":  "^0.3.1"
+                        },
+    "files":  [
+                  "lib/index.js",
+                  "lib/client.js",
+                  "cordis.patch.yml",
+                  "skin.json",
+                  "preview",
+                  "src",
+                  "tools",
+                  "assets-gen",
+                  "LICENSE",
+                  "NOTICE",
+                  "README.md"
+              ]
 }
