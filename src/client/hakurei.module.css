@@ -670,7 +670,7 @@ body[data-dsh-hakurei] [data-hakurei-sidebar-footer]::before {
 body[data-dsh-hakurei]
     [data-hakurei-sidebar-footer]
     [data-slot='sidebar.settings']
-    > :is(button, [role='button']) {
+    [aria-haspopup='dialog'] {
   position: relative;
   z-index: 1;
   width: 100%;
@@ -699,7 +699,7 @@ body[data-dsh-hakurei]
 body[data-dsh-hakurei]:not([data-hakurei-sidebar-size='rail'])
     [data-hakurei-sidebar-footer]
     [data-slot='sidebar.settings']
-    > :is(button, [role='button']) {
+    [aria-haspopup='dialog'] {
   position: relative;
   flex: 1 1 auto;
   width: 100%;
@@ -710,7 +710,7 @@ body[data-dsh-hakurei]:not([data-hakurei-sidebar-size='rail'])
 body[data-dsh-hakurei]:not([data-hakurei-sidebar-size='rail'])
     [data-hakurei-sidebar-footer]
     [data-slot='sidebar.settings']
-    > :is(button, [role='button'])
+    [aria-haspopup='dialog']
     [data-slot='settings.trigger'] {
   line-height: 1;
 }
@@ -718,14 +718,14 @@ body[data-dsh-hakurei]:not([data-hakurei-sidebar-size='rail'])
 body[data-dsh-hakurei]
     [data-hakurei-sidebar-footer]
     [data-slot='sidebar.settings']
-    > :is(button, [role='button'])::before {
+    [aria-haspopup='dialog']::before {
   content: none;
 }
 
 body[data-dsh-hakurei]
     [data-hakurei-sidebar-footer]
     [data-slot='sidebar.settings']
-    > :is(button, [role='button']):is(:hover, :focus-visible) {
+    [aria-haspopup='dialog']:is(:hover, :focus-visible) {
   color: #fff8e8;
   background: none;
   filter: brightness(1.1) drop-shadow(0 5px 12px rgba(24, 6, 9, 0.3));
@@ -736,7 +736,7 @@ body[data-dsh-hakurei]
 body[data-dsh-hakurei]
     [data-hakurei-sidebar-footer]
     [data-slot='sidebar.settings']
-    > :is(button, [role='button']) svg {
+    [aria-haspopup='dialog'] svg {
   color: #e8c77f;
   filter: drop-shadow(0 1px 2px rgba(21, 5, 8, 0.62));
 }
@@ -811,7 +811,7 @@ body[data-dsh-hakurei][data-hakurei-sidebar-size='rail'] [data-hakurei-sidebar-f
 body[data-dsh-hakurei][data-hakurei-sidebar-size='rail']
     [data-hakurei-sidebar-footer]
     [data-slot='sidebar.settings']
-    > :is(button, [role='button']) {
+    [aria-haspopup='dialog'] {
   width: 38px;
   min-width: 38px;
   min-height: 38px;
@@ -829,7 +829,7 @@ body[data-dsh-hakurei][data-hakurei-sidebar-size='rail']
 body[data-dsh-hakurei][data-hakurei-sidebar-size='rail']
     [data-hakurei-sidebar-footer]
     [data-slot='sidebar.settings']
-    > :is(button, [role='button'])::before {
+    [aria-haspopup='dialog']::before {
   display: none;
 }
 
@@ -939,7 +939,7 @@ body[data-dsh-hakurei][data-hakurei-sidebar-size='rail']
       button[class*='newSession'],
       [class*='sectionHeader'] [class*='iconButton'],
       [class*='search'] [class*='searchButton'],
-      [data-hakurei-sidebar-footer] [data-slot='sidebar.settings'] > :is(button, [role='button'])
+      [data-hakurei-sidebar-footer] [data-slot='sidebar.settings'] [aria-haspopup='dialog']
     ) {
   box-sizing: border-box;
   width: var(--hakurei-rail-control-size);
@@ -974,7 +974,7 @@ body[data-dsh-hakurei][data-hakurei-sidebar-size='rail']
       button[class*='newSession'],
       [class*='sectionHeader'] [class*='iconButton'],
       [class*='search'] [class*='searchButton'],
-      [data-hakurei-sidebar-footer] [data-slot='sidebar.settings'] > :is(button, [role='button'])
+      [data-hakurei-sidebar-footer] [data-slot='sidebar.settings'] [aria-haspopup='dialog']
     ):is(:hover, :focus-visible) {
   color: #fff1ce;
   border-color: rgba(244, 218, 164, 0.94);
@@ -1633,16 +1633,20 @@ body[data-dsh-hakurei]
 /* The sidebar content root normally sits at layer 2 above the mascot. Since
    SettingsPanel is mounted inside that root instead of a document portal,
    promote the owning root while the dialog is open. Its fixed layer can then
-   cover sticky Markdown banners and the skin's conversation header. */
+   cover sticky Markdown banners and the skin's conversation header.
+   The trigger is matched as a descendant of the seat: the product wraps it in
+   its own trigger row, so the old child combinator never matched and the
+   dialog stayed capped inside this root's layer-2 stacking context (the
+   sticky composer seat sits at layer 7 and painted over the panel). */
 body[data-dsh-hakurei]:has(
     [data-slot='sidebar.settings']
-      > :is(button, [role='button'])[aria-expanded='true']
+      [aria-haspopup='dialog'][aria-expanded='true']
   )
   :is([data-pane='sidebar'], [class*='sidebarCol'])
   > div
   > :has(
     [data-slot='sidebar.settings']
-      > :is(button, [role='button'])[aria-expanded='true']
+      [aria-haspopup='dialog'][aria-expanded='true']
   ) {
   z-index: 1000;
 }
@@ -1653,7 +1657,7 @@ body[data-dsh-hakurei]:has(
    instead of dissolving into the navy surface. */
 body[data-dsh-hakurei]:has(
     [data-slot='sidebar.settings']
-      > :is(button, [role='button'])[aria-expanded='true']
+      [aria-haspopup='dialog'][aria-expanded='true']
   ) [data-skin-chrome='sidebar-corners'] {
   --hakurei-sidebar-frame-line-x: 2.6px;
   --hakurei-sidebar-frame-line-y: 2.4px;
@@ -1667,7 +1671,7 @@ body[data-dsh-hakurei]:has(
 
 body[data-dsh-hakurei]:has(
     [data-slot='sidebar.settings']
-      > :is(button, [role='button'])[aria-expanded='true']
+      [aria-haspopup='dialog'][aria-expanded='true']
   ) [data-skin-chrome='sidebar-corners'] > [data-skin-corner] {
   filter: none;
 }
@@ -1687,7 +1691,7 @@ body[data-dsh-hakurei] [data-hakurei-settings-backdrop-frame] {
    not visually compete with, or accept input through, the modal surface. */
 body[data-dsh-hakurei]:has(
     [data-slot='sidebar.settings']
-      > :is(button, [role='button'])[aria-expanded='true']
+      [aria-haspopup='dialog'][aria-expanded='true']
   ) [data-composer-card] {
   z-index: 0;
   opacity: 0.12;
@@ -2567,7 +2571,7 @@ body[data-dsh-hakurei]:not([data-hakurei-sidebar-size='rail']) :is([data-pane='s
    the mask, only its edge shadow relaxed. */
 body[data-dsh-hakurei]:has(
     [data-slot='sidebar.settings']
-      > :is(button, [role='button'])[aria-expanded='true']
+      [aria-haspopup='dialog'][aria-expanded='true']
   ) [data-skin-chrome='sidebar-corners'] {
   filter: drop-shadow(2px 0 6px rgba(30, 8, 12, 0.18));
 }
@@ -2659,7 +2663,7 @@ body[data-dsh-hakurei] button[class*='newSession'] {
 body[data-dsh-hakurei]
     [data-hakurei-sidebar-footer]
     [data-slot='sidebar.settings']
-    > :is(button, [role='button']) {
+    [aria-haspopup='dialog'] {
   color: #8a3a1e;
   border: 1px solid rgba(190, 145, 75, 0.55);
   border-image-source: none;
@@ -2675,7 +2679,7 @@ body[data-dsh-hakurei]
 body[data-dsh-hakurei]
     [data-hakurei-sidebar-footer]
     [data-slot='sidebar.settings']
-    > :is(button, [role='button']) svg {
+    [aria-haspopup='dialog'] svg {
   color: #b8872a;
 }
 
@@ -3020,7 +3024,7 @@ body[data-dsh-hakurei] button[class*='newSession']:hover {
 body[data-dsh-hakurei]
   [data-hakurei-sidebar-footer]
   [data-slot='sidebar.settings']
-  > :is(button, [role='button']) {
+  [aria-haspopup='dialog'] {
   background: transparent;
   border: 1px solid rgba(190, 145, 75, 0.35);
   border-radius: 10px;
@@ -3031,7 +3035,7 @@ body[data-dsh-hakurei]
 body[data-dsh-hakurei]
   [data-hakurei-sidebar-footer]
   [data-slot='sidebar.settings']
-  > :is(button, [role='button']):is(:hover, :focus-visible) {
+  [aria-haspopup='dialog']:is(:hover, :focus-visible) {
   background: rgba(255, 252, 244, 0.35);
   filter: none;
   transform: none;
