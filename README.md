@@ -36,23 +36,32 @@ DeepSeek Harness Web GUI 的东方Project 博丽神社主题皮肤：博丽神�
 
 ## 安装
 
-方式一：本地路径（开发 / 已克隆仓库）
+**方式一：一行命令直装（推荐）**
 
 ```sh
-dsh plugin --profile web add <本目录绝对路径>
+dsh plugin --profile web add https://github.com/xiake595/touhou-hakurei
 ```
 
-方式二：GitHub 分发（克隆后安装）
+也可以直接把仓库地址交给 DSH：「安装一下这个皮肤包：https://github.com/xiake595/touhou-hakurei」。
+
+**方式二：本地路径（开发 / 已克隆仓库）**
 
 ```sh
 git clone https://github.com/xiake595/touhou-hakurei
-dsh plugin --profile web add <克隆路径>
+dsh plugin --profile web add ./touhou-hakurei
 ```
 
-也可以直接对 DSH 说："安装一下这个皮肤包：<仓库 URL>"。
+**卸载**
+
+```sh
+dsh plugin --profile web remove @dsh-external/dsh-client-ui-skin-hakurei-shrine
+```
 
 加载即生效、卸载即复原（`wiring.id` 为 `ui-skin-hakurei`）。皮肤之间的
 互斥切换由皮肤管理工具（如 dsh-skin）或 profile 的 bundles 配置管理。
+
+> 以 GitHub 方式安装时，pnpm 会对 `@deepseek-ai/cordis` 报一条 peer
+> dependency 警告——该依赖由 DSH 运行时提供，属预期提示，不影响使用。
 
 ## 素材
 
